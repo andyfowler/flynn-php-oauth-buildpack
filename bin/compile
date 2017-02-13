@@ -4,6 +4,7 @@
 BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
+BUILDPACK_DIR=$(cd $(dirname $0); cd ..; pwd)
 
 set -e
 
@@ -14,3 +15,6 @@ echo "Downloading oauth2_proxy to $BUILD_DIR/bin/"
 mkdir -p $BUILD_DIR/bin/
 
 curl --retry 3 --silent --location $OAUTH2_PROXY_TAR |tar xzm -C $BUILD_DIR/bin/ --strip-components=1
+
+cp $BUILDPACK_DIR/php-nginx-oauth $BUILD_DIR/bin/
+cp $BUILDPACK_DIR/oauth2_proxy.nginx.conf $BUILD_DIR/
