@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# usage: bin/compile <build-dir> <cache-dir> <env-dir>
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+set -e
+
+OAUTH2_PROXY_TAR=${OAUTH2_PROXY_TAR:-https://github.com/bitly/oauth2_proxy/releases/download/v2.1/oauth2_proxy-2.1.linux-amd64.go1.6.tar.gz}
+
+curl --retry 3 --silent --location $OAUTH2_PROXY_TAR |tar xzm -C $ENV_DIR/bin/ --strip-components=1
