@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
+BUILD_DIR=$1
+
+# Exit early if no oauth2 confi
+# @TODO check env args here too?
+if [ ! -f $BUILD_DIR/oauth2_proxy.cfg ]; then
+  echo 'Need a oauth2_proxy.cfg in your root directory'
+  exit 1
+fi
+
 echo 'PHP with oauth2_proxy'
 exit 0
