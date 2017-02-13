@@ -21,5 +21,3 @@ cp $BUILDPACK_DIR/oauth2_proxy.nginx.conf $BUILD_DIR/
 
 # need to override the nginx binary that comes with heroku, because it doesn't have the auth_request module
 echo 'export HEROKU_PHP_PLATFORM_REPOSITORIES=https://nutshell-tools-public.s3.amazonaws.com/dist-cedar-14-develop/packages.json' > $BUILDPACK_DIR/export
-
-echo "WROTE TO $BUILDPACK_DIR/export"
